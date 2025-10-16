@@ -39,7 +39,7 @@ export function useProducts(initialFilters = null) {
 
   return {
     data: products,
-    isLoading,
+    isLoading: isLoading || isFetching,
     isError,
     error,
     refetch,
