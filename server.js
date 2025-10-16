@@ -6,14 +6,14 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const port = 8080;
+const PORT = 3000;
 
 app.use(express.static(path.join(__dirname, "dist")));
 
-app.get("/*", (_, res) => {
+app.get("/:path(*)", (req, res) => {
   res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
-app.listen(port, () => {
-  console.log(`🚀 Frontend running on port ${port}`);
+app.listen(PORT, () => {
+  console.log(`🚀 Frontend running on port ${PORT}`);
 });
